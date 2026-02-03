@@ -1,23 +1,15 @@
-import java.util.Scanner;
+import java.text.NumberFormat;
+import java.util.Locale;
 
 public class Bai4 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Nhập mã thẻ: ");
-        String maThe = sc.nextLine();
 
-        // Regex: 2 chữ hoa + 4 số năm + 5 số ngẫu nhiên
-        String mauRegex = "^[A-Z]{2}\\d{4}\\d{5}$";
+    public static void main(String[] args){
+        Classroom classmate1 = new Classroom("Nguyen Van A", 200000);
+        Classroom classmate2 = new Classroom("Nguyen Thi B", 210000);
+        Classroom classmate3 = new Classroom("Tran Van C", 200000);
+        Classroom classmate4 = new Classroom("Nguyen Van D", 250000);
 
-        if (maThe.matches(mauRegex)) {
-            System.out.println("Mã thẻ hợp lệ!");
-        } else {
-            // Kiểm tra từng đoạn để báo lỗi cụ thể
-            if (!maThe.startsWith("TV")) {
-                System.out.println("Lỗi: Phải bắt đầu bằng TV");
-            } else {
-                System.out.println("Lỗi: Sai định dạng năm hoặc số ngẫu nhiên");
-            }
-        }
+        NumberFormat nf = NumberFormat.getNumberInstance(Locale.US);
+        System.out.println("Tổng quỹ lớp: " + nf.format(Classroom.classFund) + "VNĐ");
     }
 }
