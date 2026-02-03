@@ -1,19 +1,13 @@
-import java.util.regex.*;
-
 public class Bai5 {
-    public static void main(String[] args) {
-        String log = "2024-05-20 | User: Long | Action: BORROW | BookID: BK123";
+    public static void main(String[] args){
+        Config newConfig = new Config();
 
-        // Tạo các "cái bẫy" () để hứng dữ liệu
-        String regex = "(\\d{4}-\\d{2}-\\d{2}) \\| User: (\\w+) \\| Action: (\\w+) \\| BookID: (\\w+)";
+        System.out.println("max: " + newConfig.MAX_SCORE);
+        System.out.println("max: " + newConfig.MIN_SCORE);
 
-        Pattern p = Pattern.compile(regex);
-        Matcher m = p.matcher(log);
+//        newConfig.MAX_SCORE = 999;
+//        newConfig.MIN_SCORE = -999;
+        // Lỗi 'Cannot assign a value to final variable'
 
-        if (m.find()) {
-            System.out.println("Ngày: " + m.group(1)); // Cái bẫy 1
-            System.out.println("Tên: " + m.group(2));  // Cái bẫy 2
-            System.out.println("Hành động: " + m.group(3)); // Cái bẫy 3
-        }
     }
 }
