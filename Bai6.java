@@ -1,22 +1,33 @@
+package PTIT_CNTT1_IT203A_Session07;
+
+import java.util.Scanner;
+
 public class Bai6 {
-    public static void main(String[] args) {
-        String danhGia = "Quyển sách này rất tệ, nội dung dở quá.";
-        String[] blacklist = {"tệ", "dở"};
 
-        // Duyệt từng từ xấu trong danh sách đen
-        for (int i = 0; i < blacklist.length; i++) {
-            String tuXau = blacklist[i];
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
 
-            // Tạo chuỗi **** có độ dài bằng từ xấu
-            String sao = "";
-            for (int j = 0; j < tuXau.length(); j++) {
-                sao += "*";
-            }
+        User user1 = new User(1, "nvana", "nva12345");
+        User user2 = new User(2, "tthib", "ttb12345");
+        User user3 = new User(3, "bvanc", "bvc12345");
 
-            // Thay thế từ xấu bằng sao
-            danhGia = danhGia.replace(tuXau, sao);
+        UserManager.addUser(user1);
+        UserManager.addUser(user2);
+        UserManager.addUser(user3);
+
+
+
+        System.out.println("\nNhập thông tin đăng nhập");
+        System.out.print("\tTên đăng nhập: ");
+        String loginUsername = sc.nextLine();
+        System.out.print("\tMật khẩu: ");
+        String loginPassword = sc.nextLine();
+        if(UserManager.checkLogin(loginUsername, loginPassword)){
+            System.out.println("Đăng nhập thành công");
+        }else{
+            System.out.println("Tên đăng nhập hoặc mật khẩu chưa đúng, vui lòng thử lại");
         }
 
-        System.out.println("Kết quả: " + danhGia);
+
     }
 }
