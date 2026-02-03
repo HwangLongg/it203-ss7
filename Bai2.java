@@ -1,20 +1,25 @@
 public class Bai2 {
-    public static void main(String[] args) {
-        String moTa = "Sách Toán lớp 10. Kệ: A12, tầng 2.";
+    public static void main(String[] args){
+        int birthYear = 2006;
+        Student newStudent = new Student("SV003", "Tran Thi C");
 
-        if (moTa.contains("Kệ:")) {
-            // Tìm vị trí bắt đầu ngay sau chữ "Kệ: "
-            int start = moTa.indexOf("Kệ:") + 4;
-            // Tìm dấu phẩy gần nhất sau đó
-            int end = moTa.indexOf(",", start);
 
-            String maViTri = moTa.substring(start, end);
+        int clonebBirthYear = birthYear;
+        Student cloneNewStudent = newStudent;
 
-            // Thay thế chữ
-            String moTaMoi = moTa.replace("Kệ:", "Vị trí lưu trữ:");
+        // Thay doi gia tri
+        birthYear = 2005;
+        newStudent.fullname = "Bui Van C";
 
-            System.out.println("Mã vị trí trích xuất: " + maViTri.trim());
-            System.out.println("Mô tả sau khi thay thế: " + moTaMoi);
-        }
+
+        // In ra sau khi thay doi
+        System.out.println("Sinh viên mới clone: ");
+        cloneNewStudent.showStudentInfo();
+        System.out.println("Sinh viên mới: ");
+        newStudent.showStudentInfo();
+
+        System.out.println("\nNăm sinh clone: " + clonebBirthYear);
+        System.out.println("Năm sinh: " + birthYear);
+
     }
 }
