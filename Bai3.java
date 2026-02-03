@@ -1,19 +1,27 @@
+
+import java.util.Scanner;
+
 public class Bai3 {
-    public static void main(String[] args) {
 
-        StringBuilder nhatKy = new StringBuilder();
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
 
-        nhatKy.append("BÁO CÁO NGÀY: 2026-01-28\n");
-
-        String[] maSach = {"BK001", "BK002", "BK003"};
-        String[] ngayMuon = {"20/01", "21/01", "22/01"};
-
-        for (int i = 0; i < maSach.length; i++) {
-
-            nhatKy.append("Mã: ").append(maSach[i]);
-            nhatKy.append(" | Ngày: ").append(ngayMuon[i]).append("\n");
+        System.out.print("\nNhập số điểm: ");
+        int quantity = sc.nextInt();
+        double[] scores = new double[quantity];
+        System.out.println("Nhập các điểm: ");
+        for (int i=0; i<quantity; i++){
+            scores[i] = sc.nextDouble();
         }
 
-        System.out.println(nhatKy.toString());
+        System.out.println("Kiểm tra Đạt/Trượt");
+        for (double score : scores){
+            ScoreUtils.checkPass(score);
+        }
+
+        System.out.println("================================");
+        System.out.print("Tính điểm trung bình");
+        ScoreUtils.calculateAverage(scores);
+
     }
 }
